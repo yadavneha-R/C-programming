@@ -1,19 +1,12 @@
 #include <stdio.h>
 int main() {
-float physics, chemistry, maths, total, average;     // Reading  marks for all subjects
-printf("Enter marks for Physics:");
-scanf("%f", &physics);
-printf("Enter marks for Chemistry:");
-scanf("%f", &chemistry);
-printf("Enter marks for Mathematics: ");
-scanf("%f", &maths);
-total = physics + chemistry + maths;     // Calculations start here
-average = total / 3.0;
-printf("\n \n");
-printf("PCM Total\t:\t%.2f / 300\n", total);
-printf("Average Marks\t:\t%.2f%%\n", average);
-printf(" \n");                  // Eligibility check using the conditional operator (condition ? true_case : false_case)
-printf("Status\t\t:\t%s\n", (average >= 50) ? "ELIGIBLE for Admission" : "NOT ELIGIBLE for Admission");
-printf("----------------------------------------\n");
+int num;
+printf("Enter an integer: ");
+scanf("%d", &num);
+if (num % 2 == 0)
+printf("%d is Even\n", num);
+else
+printf("%d is Odd\n", num);
 return 0;
-    }
+}
+

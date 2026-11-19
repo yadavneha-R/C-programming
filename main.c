@@ -1,16 +1,23 @@
 #include <stdio.h>
 int main() {
-int n, i;
-printf("Enter size: ");
+FILE *file;
+int emp_id, n, i;
+char name[50];
+float salary;
+file = fopen("employee.txt", "w");
+printf("Enter number of employees: ");
 scanf("%d", &n);
-int arr[n];
-for(i = 0; i < n; i++) scanf("%d", &arr[i]);
-int *ptr = &arr[n - 1]; // Point to end element
-printf("Reversed Array: ");
-for(i = n - 1; i >= 0; i--) {
-printf("%d ", *ptr);
-ptr--; // Move memory pointer backward
+for(i = 0; i < n; i++) {
+printf("Enter ID, Name, Salary: ");
+scanf("%d %s %f", &emp_id, name, &salary);
+fprintf(file, "%d %s %.2f\n", emp_id, name, salary);
 }
-printf("\n");
+fclose(file);
+file = fopen("employee.txt", "r");
+printf("\n--- STORED EMPLOYEE DATABASE RECORDS ---\n");
+while(fscanf(file, "%d %s %f", &emp_id, name, &salary) == 3) {
+printf("ID: %d | Name: %-10s | Salary: %.2f\n", emp_id, name, salary);
+}
+fclose(file);
 return 0;
 }
